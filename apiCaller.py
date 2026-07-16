@@ -48,7 +48,4 @@ def compile_mov_from_ratings():
 def compile_movie(movie):
     compile_movies([movie])
 
-# t_movie = [["Her", 2013.0]]
-# compile_movies(t_movie)
-# data = rq.get(f"http://www.omdbapi.com/", params={"apikey": OMDBAPI_KEY, "t": "Her", "y": str(int(2013.0))}).json()
-# print(data)
+
