@@ -15,8 +15,7 @@ def compile_movies(movie_info_array):
     if len(movie_info_array[0]) == 2:
         for name, year in movie_info_array:
             if movie_df.isin([name]).sum().get("Title") == 0:
-                print("spork")
-                data = rq.get(f"http://www.omdbapi.com/", params={"apikey": OMDBAPI_KEY, "t": name, "y": str(year)}).json()
+                data = rq.get(f"http://www.omdbapi.com/", params={"apikey": OMDBAPI_KEY, "t": name, "y": str(int(year))}).json()
                 if data["Response"] == "True":
                     df = pd.DataFrame([data])
                     df_array = df.to_numpy()
@@ -49,3 +48,7 @@ def compile_mov_from_ratings():
 def compile_movie(movie):
     compile_movies([movie])
 
+# t_movie = [["Her", 2013.0]]
+# compile_movies(t_movie)
+# data = rq.get(f"http://www.omdbapi.com/", params={"apikey": OMDBAPI_KEY, "t": "Her", "y": str(int(2013.0))}).json()
+# print(data)
